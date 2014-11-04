@@ -74,7 +74,7 @@ void CDataLoader::mapDownloaded( QNetworkReply* reply )
                     reply->header(QNetworkRequest::LastModifiedHeader).toDateTime() )
             {
                 reply->deleteLater();
-                emit finished();
+                Q_EMIT finished();
                 return;
             }
             else
@@ -188,23 +188,27 @@ void CDataLoader::mapDownloaded( QNetworkReply* reply )
 
         }
 
+        Q_EMIT finished();
 
-//        qDebug() << "ALLIES: ";
-//        foreach( CWorld::TShPtrAlliace ally, m_currWorld->m_alliaces.values() )
-//            qDebug() << ally->m_allianceName;
 
-//        qDebug() << "\nPLAYERS: ";
-//        foreach( CWorld::TShPtrPlayer player, m_currWorld->m_players.values() )
-//            qDebug() << player->m_playerName;
+        //        qDebug() << "ALLIES: ";
+        //        foreach( CWorld::TShPtrAlliace ally, m_currWorld->m_alliaces.values() )
+        //            qDebug() << ally->m_allianceName;
 
-//        qDebug() << "\nVILLAGES: ";
-//        foreach( CWorld::TShPtrVillage village, m_currWorld->m_villages.values() )
-//            qDebug() << "(" << village->m_x << "|" << village->m_y << ")" << village->m_villageName;
+        //        qDebug() << "\nPLAYERS: ";
+                foreach( CWorld::TShPtrPlayer player, m_currWorld->m_players.values() )
+                    qDebug() << player->m_playerName;
+
+                qDebug() << "\n";
+
+        //        qDebug() << "\nVILLAGES: ";
+//                foreach( CWorld::TShPtrVillage village, m_currWorld->m_villages.values() )
+//                    qDebug() << "(" << village->m_x << "|" << village->m_y << ")" << village->m_villageName;
 
 
     }
     reply->deleteLater();
-    emit finished();
+
 }
 
 QDir CDataLoader::getDataDirectory() const

@@ -26,7 +26,9 @@ private Q_SLOTS:
 
     void loadThread_finished();
 
-    void on_cbServerSelector_currentIndexChanged(const QString &arg1);
+    void on_cbServerSelector_currentIndexChanged(const QString &serverName);
+
+    void loadThread_unavailableServer();
 
 private:
     void readyToDownload();

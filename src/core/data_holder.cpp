@@ -16,6 +16,7 @@ QStringList CDataHolder::getServersList() const
         foreach( QString currServerName, currZone.keys() )
             serversList.append( currServerName );
     }
+    qSort( serversList );
     return serversList;
 }
 
