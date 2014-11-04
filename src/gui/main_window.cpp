@@ -2,6 +2,7 @@
 #include "ui_main_window.h"
 
 #include <QDebug>
+#include <QCompleter>
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -53,6 +54,13 @@ void CMainWindow::loadThread_finished()
     readyToDownload();
 
     CWorld::TShPtrWorld world = m_loader->getCurrentWorld();
+
+    if( m_ui->leUserNickname->completer() == nullptr )
+    {
+        QCompleter* completer = new QCompleter(world->getAllPlayersName(), m_ui->leUserNickname);
+        m_ui->leUserNickname->setCompleter( completer );
+    }
+
     if( !world.isNull() )
     {
         if( !m_holder.m_worlds.contains( world ) )
@@ -75,6 +83,7 @@ void CMainWindow::on_cbServerSelector_currentIndexChanged(const QString &serverN
     }
     else
         readyToDownload();
+    m_ui->leUserNickname->setCompleter( nullptr );
 }
 
 void CMainWindow::loadThread_unavailableServer()

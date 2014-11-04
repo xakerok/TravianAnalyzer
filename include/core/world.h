@@ -26,6 +26,7 @@ public:
     typedef QSharedPointer<CAlliance> TShPtrAlliace;
     typedef QSharedPointer<CVillage> TShPtrVillage;
 
+    QStringList getAllPlayersName() const;
 
     QHash<unsigned long, TShPtrPlayer > m_players;
     QHash<unsigned long, TShPtrAlliace > m_alliaces;
