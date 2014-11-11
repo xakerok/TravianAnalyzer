@@ -16,19 +16,26 @@ CONFIG += c++11
 INCLUDEPATH += $$PWD/../include
 
 HEADERS  += ../include/gui/main_window.h \
-    ../include/core/data_loader.h \
+	 ../include/data_loader.h \
     ../include/core/world.h \
     ../include/core/player.h \
     ../include/core/village.h \
     ../include/core/alliance.h \
-    ../include/core/data_holder.h
+	 ../include/data_holder.h \
+    ../include/core/server.h \
+    ../include/config.h \
+    ../include/core/servers_model.h \
+    ../include/helper/server_helper.h
 
 
 SOURCES += ../src/main.cpp\
         ../src/gui/main_window.cpp \
-    ../src/core/data_loader.cpp \
+	 ../src/data_loader.cpp \
     ../src/core/world.cpp \
-    ../src/core/data_holder.cpp
+	 ../src/data_holder.cpp \
+    ../src/core/server.cpp \
+    ../src/core/servers_model.cpp \
+    ../src/helper/server_helper.cpp
 
 
 FORMS    += ../forms/main_window.ui

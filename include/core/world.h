@@ -7,36 +7,34 @@
 
 #include "player.h"
 #include "alliance.h"
-class CPlayer;
-class CAlliance;
-class CVillage;
 
 #include <QDateTime>
 
-
-
 class CWorld
 {
-public:
-    CWorld( const QDateTime& time){m_time = time;}
+	public:
+		CWorld( const QDateTime& time){m_time = time;}
 
-    typedef QSharedPointer<CWorld> TShPtrWorld;
+		typedef QSharedPointer<CPlayer> TShPtrPlayer;
+		typedef QSharedPointer<CAlliance> TShPtrAlliace;
+		typedef QSharedPointer<CVillage> TShPtrVillage;
 
-    typedef QSharedPointer<CPlayer> TShPtrPlayer;
-    typedef QSharedPointer<CAlliance> TShPtrAlliace;
-    typedef QSharedPointer<CVillage> TShPtrVillage;
+		typedef QSharedPointer< CWorld > TShPtrWorld;
+		typedef QSharedPointer< const CWorld > TShPtrConstWorld;
 
-    QStringList getAllPlayersName() const;
+		QStringList getAllPlayersName() const;
 
-    QHash<unsigned long, TShPtrPlayer > m_players;
-    QHash<unsigned long, TShPtrAlliace > m_alliaces;
-    QHash<unsigned long, TShPtrVillage > m_villages;
+		QHash<unsigned long, TShPtrPlayer > m_players;
+		QHash<unsigned long, TShPtrAlliace > m_alliaces;
+		QHash<unsigned long, TShPtrVillage > m_villages;
 
-    QDateTime m_time;
+		QDateTime m_time;
 
-private:
-    Q_DISABLE_COPY(CWorld)
+	private:
+		Q_DISABLE_COPY(CWorld)
 };
+
+
 
 
 #endif // WORLD_H

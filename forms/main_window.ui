@@ -129,6 +129,9 @@
           </item>
           <item row="1" column="1" colspan="2">
            <widget class="QLineEdit" name="leUserNickname">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="maxLength">
              <number>50</number>
             </property>

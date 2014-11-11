@@ -2,19 +2,17 @@
 #define ALLIANCE_H
 
 #include <QList>
-#include "player.h"
-
+#include <QWeakPointer>
+class CPlayer;
 
 class CAlliance
 {
-public:
-    CAlliance(){}
+	public:
+		CAlliance(){}
 
-    typedef QWeakPointer<CPlayer> TWeakPtrPlayer;
-
-    QString m_allianceName;
-
-    QList<TWeakPtrPlayer> m_players;
+		typedef QWeakPointer<CPlayer> TWeakPtrPlayer;
+		QString m_allianceName;
+		QList<TWeakPtrPlayer> m_players;
 
 };
 
